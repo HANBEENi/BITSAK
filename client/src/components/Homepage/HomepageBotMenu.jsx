@@ -7,9 +7,9 @@ const HomepageBotMenu = () => {
   return (
     <>
       <div className={styles.menuBox}>
-        <MenuItem title="메뉴이름" url="/" desc="메뉴에 대한 간략한 설명" />
-        <MenuItem title="메뉴이름" url="/" desc="메뉴에 대한 간략한 설명" />
-        <MenuItem title="메뉴이름" url="/" desc="메뉴에 대한 간략한 설명" />
+        <MenuItem title="메뉴이름1" url="/" desc="메뉴에 대한 간략한 설명" />
+        <MenuItem title="메뉴이름2" url="/" desc="메뉴에 대한 간략한 설명" />
+        <MenuItem title="메뉴이름3" url="/" desc="메뉴에 대한 간략한 설명" />
       </div>
     </>
   );
