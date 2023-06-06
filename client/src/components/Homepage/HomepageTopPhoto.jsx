@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // 담당: 정주현
 
 import bgImg from "/Homepage/seoul_night.jpg";

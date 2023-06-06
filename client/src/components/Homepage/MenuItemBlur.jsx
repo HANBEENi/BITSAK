@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // 담당: 정주현
 
 import { Link } from "react-router-dom";
