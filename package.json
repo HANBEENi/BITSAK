@@ -20,10 +20,7 @@
   "devDependencies": {
     "concurrently": "^8.0.1",
     "dotenv": "^16.1.3",
-    "nodemon": "^2.0.22"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://kdt-gitlab.elice.io/ai_track/class_07/data_project/team04/bitsak.git"
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.8"
   }
 }
