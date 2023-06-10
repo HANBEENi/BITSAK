@@ -5,7 +5,7 @@ class galleryUploadModel {
   static async uploadPhoto(photoData) {
     return new Promise((resolve, reject) => {
       db.query('INSERT INTO gallery (author, description, location, take_date, file_path) VALUES (?, ?, ?, ?, ?)',
-      [photoData.author, photoData.description, photoData.location, photoData.take_date, photoData.filePath],
+      [photoData.author, photoData.description, photoData.location, photoData.take_date, photoData.file_path],
       (err, res) => {
         if (err) {
           console.log('error', err);
