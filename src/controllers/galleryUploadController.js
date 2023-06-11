@@ -6,32 +6,29 @@ import fs from "fs";
 const galleryUploadController = async (req, res, next) => {
   try {
     const filePath = req.file.path;
+    const currentDate = new Date();
 
-    // const photoData = new Map();
-
-    // photoData.set('author', req.body.author);
-    // photoData.set('description', req.body.description);
-    // photoData.set('location',req.body.location);
-    // photoData.set('take_date', req.body.take_date);
-    // photoData.set('file_path', filePath);
     const photoData = {
       author: req.body.author,
       description: req.body.description,
       location: req.body.location,
       take_date: req.body.take_date,
+      post_date: currentDate,
       file_path: filePath,
     };
-    
 
     const galleryUpload = await galleryUploadService.uploadPhoto(photoData);
 
-    fs.unlinkSync(filePath);
+    
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.log('Error while deleting file:', err); // 오류 로그 출력
+      }
+    });
+    
 
-    if (galleryUpload.errorMessage) {
-      throw new Error(galleryUpload.errorMessage);
-    } else {
-      return res.status(200).send(galleryUpload);
-    }
+    return res.status(200).send(galleryUpload);
+    
   } catch (error) {
     next(error);
   }
