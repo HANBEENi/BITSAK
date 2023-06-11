@@ -3,7 +3,7 @@ import { galleryModel } from '../models/galleryModel.js';
 class galleryService {
   static async uploadPhoto(photoData) {
     try {
-      const galleryUpload = await galleryUploadModel.uploadPhoto(photoData);
+      const galleryUpload = await galleryModel.uploadPhoto(photoData);
       
       if(!galleryUpload) {
         return {
