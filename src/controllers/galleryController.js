@@ -1,9 +1,8 @@
-import { galleryUploadService } from "../services/galleryUploadService.js";
-import multer from 'multer';
+import { galleryService } from "../services/galleryService.js";
 import path from "path";
 import fs from "fs";
 
-const galleryUploadController = async (req, res, next) => {
+const galleryController = async (req, res, next) => {
   try {
     const filePath = req.file.path;
     const currentDate = new Date();
@@ -16,22 +15,21 @@ const galleryUploadController = async (req, res, next) => {
       post_date: currentDate,
       file_path: filePath,
     };
-
-    const galleryUpload = await galleryUploadService.uploadPhoto(photoData);
-
     
+
+    const galleryUpload = await galleryService.uploadPhoto(photoData);
+
     fs.unlink(filePath, (err) => {
       if (err) {
-        console.log('Error while deleting file:', err); // 오류 로그 출력
+        throw err;
       }
     });
     
-
     return res.status(200).send(galleryUpload);
-    
+
   } catch (error) {
     next(error);
   }
 };
 
-export { galleryUploadController };
+export { galleryController };

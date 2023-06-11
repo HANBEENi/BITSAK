@@ -1,10 +1,9 @@
 import { Router } from 'express';
-import { galleryUploadController } from '../controllers/galleryUploadController.js';
+import { galleryController } from '../controllers/galleryController.js';
 import multer from 'multer';
-import path from "path";
+import path from 'path';
 
-
-const galleryUploadRouter = Router();
+const galleryRouter = Router();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -17,8 +16,8 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage: storage }).single('file_path');
+const upload = multer({ dest: 'uploads/' }).single('file_path');
 
-galleryUploadRouter.post('/gallery', upload, galleryUploadController);
+galleryRouter.post('/gallery', upload, galleryController);
 
-export { galleryUploadRouter };
+export { galleryRouter };
