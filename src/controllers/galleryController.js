@@ -1,5 +1,4 @@
 import { galleryService } from "../services/galleryService.js";
-import fs from "fs";
 
 const galleryController = async (req, res, next) => {
   try {
@@ -14,18 +13,10 @@ const galleryController = async (req, res, next) => {
       post_date: currentDate,
       file_path: filePath,
     };
-    
 
     const galleryUpload = await galleryService.uploadPhoto(photoData);
 
-    fs.unlink(filePath, (err) => {
-      if (err) {
-        throw err;
-      }
-    });
-    
     return res.status(200).send(galleryUpload);
-
   } catch (error) {
     next(error);
   }
