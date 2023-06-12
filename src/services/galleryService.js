@@ -25,3 +25,9 @@ class galleryService {
 }
 
 export { galleryService };
+
+//get gallery
+
+//update gallery
+
+//delete gallery

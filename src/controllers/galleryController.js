@@ -1,5 +1,4 @@
 import { galleryService } from "../services/galleryService.js";
-import path from "path";
 import fs from "fs";
 
 const galleryController = async (req, res, next) => {
