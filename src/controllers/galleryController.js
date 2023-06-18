@@ -70,10 +70,7 @@ async function updatePhoto(req, res, next) {
     async function deletePhoto(req, res, next) {
         try {
 
-            const galleryId = req.body.galleryId;
-            const password = req.body.password;
-
-            
+            const {galleryId, password} = req.body;
 
             //게시물 삭제
             const galleryDelete = await galleryService.deletePhoto({galleryId, password});
